@@ -42,5 +42,4 @@ class CharacterViewHolder private constructor(itemView: View) : RecyclerView.Vie
             return CharacterViewHolder(view)
         }
     }
-
 }
