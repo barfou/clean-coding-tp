@@ -1,6 +1,6 @@
 package fr.appsolute.tp.data.repository
 
-import androidx.lifecycle.LiveData
+/*import androidx.lifecycle.LiveData
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 import fr.appsolute.tp.data.model.Character
@@ -11,7 +11,7 @@ import fr.appsolute.tp.data.networking.createApi
 import fr.appsolute.tp.data.networking.datasource.CharacterDataSource
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.withContext*/
 
 /*private class EpisodeRepositoryImpl(
     private val api: CharacterApi
