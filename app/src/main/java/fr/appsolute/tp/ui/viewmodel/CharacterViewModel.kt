@@ -5,13 +5,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import fr.appsolute.tp.data.model.Character
 import fr.appsolute.tp.data.repository.CharacterRepository
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
-typealias OnSuccess<T> = (T) -> Unit
-typealias OnLoading = (Boolean) -> Unit
-typealias OnError = (Throwable) -> Unit
+typealias Onsuccess<T> = (T) -> Unit
 
 class CharacterViewModel private constructor(
     private val repository: CharacterRepository
@@ -22,7 +18,7 @@ class CharacterViewModel private constructor(
      */
     val charactersPagedList = repository.getPaginatedList(viewModelScope)
 
-    fun getCharacterById(id :Int, onSuccess: OnSuccess<Character>) {
+    fun getCharacterDetails(id: Int, onSuccess: Onsuccess<Character>){
         viewModelScope.launch {
             repository.getCharacterDetails(id)?.run(onSuccess)
         }

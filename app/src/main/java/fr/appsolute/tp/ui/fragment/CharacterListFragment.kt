@@ -51,6 +51,6 @@ class CharacterListFragment : Fragment(), OnCharacterClickListener {
 
     // Implementation of OnCharacterClickListener
     override fun invoke(view: View, character: Character) {
-            findNavController().navigate(R.id.action_character_list_fragment_to_character_detail_fragment, bundleOf(CharacterDetailsFragment.ARG_CHARACTER_ID_KEY to character.id))
+            findNavController().navigate(R.id.action_character_list_fragment_to_character_detail_fragment, bundleOf(CharacterDetailFragment.ARG_CHARACTER_ID_KEY to character.id))
     }
 }

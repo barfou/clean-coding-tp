@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 import fr.appsolute.tp.data.model.Character
+import fr.appsolute.tp.data.model.Episode
 import fr.appsolute.tp.data.networking.HttpClientManager
 import fr.appsolute.tp.data.networking.api.CharacterApi
 import fr.appsolute.tp.data.networking.createApi
@@ -12,9 +13,9 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-private class CharacterRepositoryImpl(
+/*private class EpisodeRepositoryImpl(
     private val api: CharacterApi
-) : CharacterRepository {
+) : EpisodeRepository {
     /**
      * Config for pagination
      */
@@ -26,50 +27,35 @@ private class CharacterRepositoryImpl(
         .setPageSize(20)
         .build()
 
-    override fun getPaginatedList(scope: CoroutineScope): LiveData<PagedList<Character>> {
+    override fun getPaginatedList(scope: CoroutineScope): PagedList<Character> {
         return LivePagedListBuilder(
             CharacterDataSource.Factory(api, scope),
             paginationConfig
         ).build()
     }
-
-    override suspend fun getCharacterDetails(id: Int): Character? {
-        return withContext(Dispatchers.IO){
-            try {
-                val response = api.getCharacterDetails(id)
-                check(response.isSuccessful) { "Response is not a success : code = ${response.code()}"}
-                val data = response.body()?: throw  IllegalStateException("Body is null")
-                data
-            } catch (e: Exception) {
-                e.printStackTrace()
-                null
-            }
-        }
-    }
-}
+}*/
 
 /**
  * Repository of model [Character]
  */
-interface CharacterRepository {
+/*interface EpisodeRepository {
 
     /**
      * Return a LiveData (Observable Design Pattern) of a Paged List of Character
      */
-    fun getPaginatedList(scope: CoroutineScope): LiveData<PagedList<Character>>
+    fun getPaginatedList(scope: CoroutineScope): PagedList<Character>
 
-    suspend fun getCharacterDetails(id: Int): Character?
+    //suspend fun getAllEpisodes(id :Int):
 
     companion object {
         /**
-         * Singleton for the interface [CharacterRepository]
+         * Singleton for the interface [EpisodeRepository]
          */
-        val instance: CharacterRepository by lazy {
+        val instance: EpisodeRepository by lazy {
             // Lazy means "When I need it" so here this block will be launch
             // the first time you need the instance,
             // then, the reference will be stored in the value `instance`
-            CharacterRepositoryImpl(HttpClientManager.instance.createApi())
+            EpisodeRepositoryImpl(HttpClientManager.instance.createApi())
         }
     }
-
-}
+}*/
