@@ -21,8 +21,10 @@ private class EpisodeRepositoryImpl(
     private val api: EpisodeApi,
     private val dao: EpisodeDao
 ) : EpisodeRepository {
-    //
 
+    override fun getPaginatedList(scope: CoroutineScope): PagedList<Episode> {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 }
 
 /**
@@ -30,12 +32,7 @@ private class EpisodeRepositoryImpl(
  */
 interface EpisodeRepository {
 
-    /**
-     * Return a LiveData (Observable Design Pattern) of a Paged List of Character
-     */
-
-    //fun getPaginatedList(scope: CoroutineScope): PagedList<Character>
-    //suspend fun getAllEpisodes(id :Int):
+    fun getPaginatedList(scope: CoroutineScope): PagedList<Episode>
 
     companion object {
         /**
